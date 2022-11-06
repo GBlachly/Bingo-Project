@@ -1,4 +1,4 @@
-
+//Initialize BINGO options
 let bOpts = [];
 let iOpts = [];
 let nOpts = [];
@@ -6,6 +6,8 @@ let gOpts = [];
 let oOpts = [];
 
 
+//Choose haw many balls of each letter, and return an array (bingoBalls) of all the bingo balls
+//const bingoBalls = spaceOptions(5); MUST RUN THIS LINE BEFORE CALLING A NUMBER FOR NOW
 const spaceOptions = (options) => {
     for (let i = 1; i <= options; i++) {
         bOpts.push(`B${i}`);
@@ -17,9 +19,9 @@ const spaceOptions = (options) => {
     const bingoBalls = bOpts.concat(iOpts, nOpts, gOpts, oOpts);
     return bingoBalls;
 };
-//const bingoBalls = spaceOptions(5); MUST RUN THIS LINE BEFORE CALLING A NUMBER FOR NOW
 
 
+//Create a Bingo card with random numbers for each of letter of BINGO
 const generateCard = () => {
     let bCols = [];
     let bOptsCopy = [...bOpts];
@@ -65,11 +67,13 @@ const generateCard = () => {
 };
 
 
+//Check to see if a win condition has been met (five in a row)
 const checkWin = (card) => {
     //Up and Down Win
     for (let letter of card) {
         if (letter.every(item => item === 'x')) {
-            console.log('You Win UD')
+            console.log('You Win UD');
+            break;
         };
     };
  
@@ -134,6 +138,7 @@ const checkWin = (card) => {
 };
  
 
+//Call a bingo number, and mark the number off on the card if it is there (possibly put check win inside here)
 //const bingoBalls = spaceOptions(5); MUST RUN THIS LINE BEFORE CALLING A NUMBER FOR NOW
 const callNumber = (bingoCard) => {
     const randomBallIndex = Math.floor(Math.random() * bingoBalls.length);
@@ -153,6 +158,7 @@ const callNumber = (bingoCard) => {
 };
 
 
+//Reset the game by making the BINGO options empty again (run space options again to refill balls after reset)
 const resetGame = () => {
     bOpts = [];
     iOpts = [];
