@@ -173,19 +173,15 @@ const bingoBalls = spaceOptions(5);
 console.log(bingoBalls);
 
 const newCard = generateCard();
-console.log(newCard[0]);
-console.log(newCard[1]);
-console.log(newCard[2]);
-console.log(newCard[3]);
-console.log(newCard[4]);
+for (let i = 0; i < 5; i++ ) {
+    console.log(newCard[i]);
+};
 
 const callAndCheck = () => {
     callNumber(newCard);
-    console.log(newCard[0]);
-    console.log(newCard[1]);
-    console.log(newCard[2]);
-    console.log(newCard[3]);
-    console.log(newCard[4]);
+    for (let i = 0; i < 5; i++ ) {
+        console.log(newCard[i]);
+    };
 };
 
 callAndCheck();
