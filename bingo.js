@@ -169,7 +169,7 @@ const resetGame = () => {
 
 
 //Test 
-const bingoBalls = spaceOptions(5); 
+const bingoBalls = spaceOptions(10); 
 console.log(bingoBalls);
 
 const newCard = generateCard();
@@ -187,3 +187,7 @@ const callAndCheck = () => {
 callAndCheck();
 checkWin(newCard);
 
+process.stdin.on('data', () => {
+    callAndCheck();
+    checkWin(newCard);
+})
